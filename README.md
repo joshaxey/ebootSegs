@@ -17,7 +17,7 @@ You should get something like:
 <p>
 * moduleinfo.bin
 <p>
-moduleinfo.bin will look something like this (not sure if I can post much else?):
+For confirmation, moduleinfo.bin will look something like this (not sure if I can post much else?):
 <p>
 <p>
 ![alt text][logo]
