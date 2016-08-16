@@ -1,12 +1,12 @@
 # ebootSegs
-Looking into dumping loaded vita eboots and stuff...
+PoC for loading as module and dumping loaded vita eboots and stuff...
 
 ## Disclaimer:
 ihavenoideawhatimdoing.jpg
 
-Mix concept with pfs encryption responsibly, please.
+Mix concept with pfs decryption responsibly, please. :ok_hand:
 
-You may need to massage this, I am writing it from the browser with no way to compile or test :thumbsup:
+You would need to massage this to your specific need.
 
 ### Output:
 You should get something like:
