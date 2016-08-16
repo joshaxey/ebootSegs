@@ -4,6 +4,8 @@ Looking into dumping loaded vita eboots and stuff...
 ## Disclaimer:
 ihavenoideawhatimdoing.jpg
 
+Mix with other code responsibly, please.
+
 ### Output:
 You should get something like:
 
