@@ -33,6 +33,9 @@ int ebootSegs() {
 	SceUID module = 0;
 	
 	module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
+	// Pretend I am living elsewhere like ux0:patch/[TITLEID], eh mate?
+	// module = sceKernelLoadModule("ux0:app/titleid/eboot.bin", 0, NULL);
+	// module = sceKernelLoadModule("be_creative", 0, NULL);
 
 	if (module < 0) {
 		return module;
