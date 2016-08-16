@@ -2,23 +2,24 @@
 #include <stdlib.h>
 #include <string.h>
 
+#include <psp2/moduleinfo.h>
 #include <psp2/kernel/processmgr.h>
 #include <psp2/kernel/modulemgr.h>
-#include <psp2/kernel/threadmgr.h>
-#include <psp2/types.h>
 #include <psp2/io/dirent.h>
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
 
 #include "graphics.h"
 
-int ebootSegs(void);
+int WriteFile(char *file, void *buf, int size) {
+	SceUID fd = sceIoOpen(file, SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0777);
+	if (fd < 0)
+		return fd;
 
-int main(void) {
+	int written = sceIoWrite(fd, buf, size);
 
-	ebootSegs();
-
-	return 0;
+	sceIoClose(fd);
+	return written;
 }
 
 int ebootSegs(void) {
@@ -53,6 +54,13 @@ int ebootSegs(void) {
 	sceKernelDelayThread(10 * 1000 * 1000);
 
 	sceKernelExitProcess(0);
+
+	return 0;
+}
+
+int main(void) {
+
+	ebootSegs();
 
 	return 0;
 }
