@@ -41,7 +41,7 @@ int ebootSegs(void) {
 			if (info.segments[i].vaddr) {
 				char string[128];
 				sprintf(string, "ux0:ebootseg%d.bin", i);
-				WriteFile(string, info.segments[i].vaddr, info.segments[i].vsize);
+				WriteFile(string, info.segments[i].vaddr, info.segments[i].memsz);
 			}
 		}
 	}
