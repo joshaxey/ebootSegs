@@ -14,7 +14,7 @@
 
 #include "graphics.h"
 
-// Borrow WriteLine from VitaShell
+// Borrow WriteFile from VitaShell
 int WriteFile(char *file, void *buf, int size) {
 	SceUID fd = sceIoOpen(file, SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0777);
 	if (fd < 0)
