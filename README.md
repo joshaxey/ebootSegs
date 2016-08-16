@@ -4,7 +4,7 @@ PoC for loading as module and dumping loaded vita eboots and stuff...
 ## Disclaimer:
 ihavenoideawhatimdoing.jpg
 
-Mix concept with pfs decryption responsibly, please. :ok_hand:
+Mix concept with pfs decryption responsibly, please. :koala:
 
 You would need to massage this to your specific need.
 
