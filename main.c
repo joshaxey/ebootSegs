@@ -9,7 +9,7 @@
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
 
-#include "graphics.h"
+//#include "graphics.h"
 
 int WriteFile(char *file, void *buf, int size) {
 	SceUID fd = sceIoOpen(file, SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0777);
@@ -23,9 +23,9 @@ int WriteFile(char *file, void *buf, int size) {
 }
 
 int ebootSegs(void) {
-	psvDebugScreenInit();
+	//psvDebugScreenInit();
 
-	psvDebugScreenPrintf("*** BEGIN ***\n");
+	//psvDebugScreenPrintf("*** BEGIN ***\n");
 
 	SceUID module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
 
@@ -49,7 +49,7 @@ int ebootSegs(void) {
 
 	WriteFile("ux0:moduleinfo.bin", &info, sizeof(SceKernelModuleInfo));
 
-	psvDebugScreenPrintf("*** DONE ***");
+	//psvDebugScreenPrintf("*** DONE ***");
 
 	sceKernelDelayThread(10 * 1000 * 1000);
 
