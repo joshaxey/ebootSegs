@@ -14,6 +14,7 @@
 
 #include "graphics.h"
 
+// Borrow WriteLine from VitaShell
 int WriteFile(char *file, void *buf, int size) {
 	SceUID fd = sceIoOpen(file, SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0777);
 	if (fd < 0)
@@ -32,8 +33,9 @@ int ebootSegs() {
 	
 	SceUID module = 0;
 	
+	// Proof of concept, let's write ourselves out.
 	module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
-	// Pretend I am living elsewhere like ux0:patch/[TITLEID], eh mate?
+	// Pretend I am miracuously living elsewhere like ux0:patch/titleid, eh mate?
 	// module = sceKernelLoadModule("ux0:app/titleid/eboot.bin", 0, NULL);
 	// module = sceKernelLoadModule("be_creative", 0, NULL);
 
@@ -54,7 +56,9 @@ int ebootSegs() {
 			}
 		}
 	}
-
+	
+	psvDebugScreenPrintf("Writing...\n");
+	
 	WriteFile("ux0:moduleinfo.bin", &info, sizeof(SceKernelModuleInfo));
 	return 0;
 }
@@ -62,10 +66,11 @@ int ebootSegs() {
 int main(int argc, char *argv[]) {
 	psvDebugScreenInit();
 
-
 	ebootSegs();
-	psvDebugScreenPrintf("*** DONE ***\n\n");
+	
+	psvDebugScreenPrintf("*** DONE ***\n");
 	psvDebugScreenPrintf("This app will close in 10 seconds!\n");
+	
 	sceKernelDelayThread(10*1000*1000);
 
 	sceKernelExitProcess(0);
