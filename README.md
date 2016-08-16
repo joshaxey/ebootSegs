@@ -7,8 +7,8 @@ ihavenoideawhatimdoing.jpg
 ### Output:
 You should get something like:
 
-ebootseg0.bin
-
-ebootseg1.bin
-
-moduleinfo.bin
+*ebootseg0.bin
+<p>
+*ebootseg1.bin
+<p>
+*moduleinfo.bin
