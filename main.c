@@ -28,7 +28,7 @@ int WriteFile(char *file, void *buf, int size) {
 int ebootSegs() {
 	psvDebugScreenInit();
 
-	psvDebugScreenPrintf("*** BEGIN ***\n");
+	psvDebugScreenPrintf("*** BEGIN ***\n\n");
 	
 	SceUID module = 0;
 	
@@ -58,10 +58,10 @@ int ebootSegs() {
 
 int main(int argc, char *argv[]) {
 	psvDebugScreenInit();
-	psvDebugScreenPrintf("*** DONE ***");
+
 
 	ebootSegs();
-	
+	psvDebugScreenPrintf("*** DONE ***\n\n");
 	psvDebugScreenPrintf("This app will close in 10 seconds!\n");
 	sceKernelDelayThread(10*1000*1000);
 
