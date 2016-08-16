@@ -6,6 +6,8 @@ ihavenoideawhatimdoing.jpg
 
 Mix with other code responsibly, please.
 
+You may need to massage this, I am writing it from the browser with no way to compile or test :thumbsup:
+
 ### Output:
 You should get something like:
 
