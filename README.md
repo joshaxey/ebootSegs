@@ -1,5 +1,5 @@
 # ebootSegs
-Looking into dumping vita eboots and stuff.
+Looking into dumping loaded vita eboots and stuff...
 
 ## Disclaimer:
 ihavenoideawhatimdoing.jpg
