@@ -9,7 +9,7 @@
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
 
-//#include "graphics.h"
+#include "graphics.h"
 
 int WriteFile(char *file, void *buf, int size) {
 	SceUID fd = sceIoOpen(file, SCE_O_WRONLY | SCE_O_CREAT | SCE_O_TRUNC, 0777);
@@ -23,11 +23,12 @@ int WriteFile(char *file, void *buf, int size) {
 }
 
 int ebootSegs(void) {
-	//psvDebugScreenInit();
+	psvDebugScreenInit();
+	psvDebugScreenPrintf("*** BEGIN ***\n");
 
-	//psvDebugScreenPrintf("*** BEGIN ***\n");
-
-	SceUID module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
+	SceUID module = 0;
+	
+	module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
 
 	if (module < 0) {
 		return module;
@@ -48,19 +49,21 @@ int ebootSegs(void) {
 	}
 
 	WriteFile("ux0:moduleinfo.bin", &info, sizeof(SceKernelModuleInfo));
-
-	//psvDebugScreenPrintf("*** DONE ***");
-
-	sceKernelDelayThread(10 * 1000 * 1000);
-
-	sceKernelExitProcess(0);
-
+	
 	return 0;
 }
 
-int main(void) {
+int main(int argc, char *argv[]) {
+	psvDebugScreenInit();
+	psvDebugScreenPrintf("*** DONE ***\n");
 
 	ebootSegs();
+	
+	psvDebugScreenPrintf("Tool will close in 10 seconds!\n");
+	
+	sceKernelDelayThread(10*1000*1000);
 
+	sceKernelExitProcess(0);
+	
 	return 0;
 }
