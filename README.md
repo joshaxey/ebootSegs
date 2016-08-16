@@ -6,7 +6,7 @@ ihavenoideawhatimdoing.jpg
 
 Mix concept with pfs decryption responsibly, please. :koala:
 
-You would need to massage this to your specific need.
+You will need to massage this to your specific need. Don't expect it to just load stuff from anywhere without a trick or two.
 
 ### Output:
 You should get something like:
