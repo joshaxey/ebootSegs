@@ -8,6 +8,9 @@
 #include <psp2/io/dirent.h>
 #include <psp2/io/fcntl.h>
 #include <psp2/io/stat.h>
+#include <psp2/sysmodule.h>
+#include <psp2/moduleinfo.h>
+#include <psp2/types.h>
 
 #include "graphics.h"
 
@@ -22,10 +25,11 @@ int WriteFile(char *file, void *buf, int size) {
 	return written;
 }
 
-int ebootSegs(void) {
+int ebootSegs() {
 	psvDebugScreenInit();
-	psvDebugScreenPrintf("*** BEGIN ***\n");
 
+	psvDebugScreenPrintf("*** BEGIN ***\n");
+	
 	SceUID module = 0;
 	
 	module = sceKernelLoadModule("app0:eboot.bin", 0, NULL);
@@ -33,7 +37,7 @@ int ebootSegs(void) {
 	if (module < 0) {
 		return module;
 	}
-
+		
 	SceKernelModuleInfo info;
 	info.size = sizeof(SceKernelModuleInfo);
 
@@ -49,21 +53,18 @@ int ebootSegs(void) {
 	}
 
 	WriteFile("ux0:moduleinfo.bin", &info, sizeof(SceKernelModuleInfo));
-	
 	return 0;
 }
 
 int main(int argc, char *argv[]) {
 	psvDebugScreenInit();
-	psvDebugScreenPrintf("*** DONE ***\n");
+	psvDebugScreenPrintf("*** DONE ***");
 
 	ebootSegs();
 	
-	psvDebugScreenPrintf("Tool will close in 10 seconds!\n");
-	
+	psvDebugScreenPrintf("This app will close in 10 seconds!\n");
 	sceKernelDelayThread(10*1000*1000);
 
 	sceKernelExitProcess(0);
-	
 	return 0;
 }
