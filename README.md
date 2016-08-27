@@ -7,6 +7,8 @@ ihavenoideawhatimdoing.jpg
 Mix concept with pfs decryption responsibly, please. :koala:
 
 You will need to massage this to your specific need. Don't expect it to just load stuff from anywhere without a trick or two.
+<p>
+This isn't a magic piracy solution. I'm looking at you 4chan!
 
 ### Output:
 You should get something like:
