@@ -40,6 +40,7 @@ int ebootSegs() {
 	// module = sceKernelLoadModule("be_creative", 0, NULL);
 
 	if (module < 0) {
+		psvDebugScreenPrintf("Error: Item may not have been loaded.\n\n");
 		return module;
 	}
 		
@@ -48,6 +49,7 @@ int ebootSegs() {
 
 	if (sceKernelGetModuleInfo(module, &info) >= 0) {
 		int i;
+		psvDebugScreenPrintf("Success: Writing segs out...\n\n");
 		for (i = 0; i < 4; i++) {
 			if (info.segments[i].vaddr) {
 				char string[128];
@@ -55,11 +57,15 @@ int ebootSegs() {
 				WriteFile(string, info.segments[i].vaddr, info.segments[i].memsz);
 			}
 		}
+		psvDebugScreenPrintf("Success: Written.\n");
 	}
 	
-	psvDebugScreenPrintf("Writing...\n");
+	psvDebugScreenPrintf("Success: Writing info out...\n");
 	
 	WriteFile("ux0:moduleinfo.bin", &info, sizeof(SceKernelModuleInfo));
+	
+	psvDebugScreenPrintf("Success: Written.\n");
+	
 	return 0;
 }
 
@@ -68,7 +74,7 @@ int main(int argc, char *argv[]) {
 
 	ebootSegs();
 	
-	psvDebugScreenPrintf("*** DONE ***\n");
+	psvDebugScreenPrintf("*** DONE ***\n\n");
 	psvDebugScreenPrintf("This app will close in 10 seconds!\n");
 	
 	sceKernelDelayThread(10*1000*1000);
