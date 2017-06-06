@@ -7,20 +7,19 @@ ihavenoideawhatimdoing.jpg
 Mix concept with pfs decryption responsibly, please. :koala:
 
 You will need to massage this to your specific need. Don't expect it to just load stuff from anywhere without a trick or two.
-<p>
+
 This isn't a magic piracy solution. I'm looking at you anonymous board user!
 
 ### Output:
 You should get something like:
-
+<br></br>
 * ebootseg0.bin
-<p>
+<br></br>
 * ebootseg1.bin
-<p>
+<br></br>
 * moduleinfo.bin
-<p>
+<br></br>
+<br></br>
 For confirmation, moduleinfo.bin will look something like this (this is a brew example only):
-<p>
-<p>
-![alt text][logo]
-[logo]: https://github.com/joshaxey/ebootSegs/blob/master/Capture.PNG "moduleinfo.bin"
+<br></br>
+![ScreenShot](Capture.PNG)
